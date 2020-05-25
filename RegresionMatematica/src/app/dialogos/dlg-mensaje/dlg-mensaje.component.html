@@ -1,0 +1,11 @@
+<h1 *ngIf="Tipo === 'Informacion'" class="text-primary">Información</h1>
+<h1 *ngIf="Tipo === 'Advertencia'" class="text-warning">Advertencia</h1>
+<h1 *ngIf="Tipo === 'Error'" class="text-danger">Error</h1>
+<hr>
+
+<p class="text-justify" style="font-size: 24px;">{{ Mensaje }}</p>
+<hr>
+
+<button (click)="cerrar()" class="float-right btn btn-primary" *ngIf="Tipo === 'Informacion'">Ok!</button>
+<button (click)="cerrar()" class="float-right btn btn-warning" *ngIf="Tipo === 'Advertencia'">Ok!</button>
+<button (click)="cerrar()" class="float-right btn btn-danger" *ngIf="Tipo === 'Error'">Ok!</button>

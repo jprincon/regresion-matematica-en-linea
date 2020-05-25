@@ -33,4 +33,10 @@ export class GeneralService {
 
     return this.http.get(url);
   }
+
+  getUsuarios() {
+    const url = this.RUTA_SERVIDOR + this.DS_USUARIOS;
+
+    return this.http.get(url);
+  }
 }

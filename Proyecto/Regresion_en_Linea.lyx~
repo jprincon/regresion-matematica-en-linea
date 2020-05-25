@@ -386,5 +386,13 @@ Iniciar Sesión
 Iniciar sesión por parte del usuario
 \end_layout
 
+\begin_layout Chapter
+Crear Modal de Mensaje
+\end_layout
+
+\begin_layout Enumerate
+Crear un modal y un servicio de dialogos para la aplicación
+\end_layout
+
 \end_body
 \end_document

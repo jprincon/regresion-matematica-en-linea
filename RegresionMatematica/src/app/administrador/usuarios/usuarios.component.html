@@ -1,0 +1,30 @@
+<h1>Usuarios</h1>
+<hr>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Documento</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let usuario of Usuarios; let id = index">
+            <td>{{ id + 1 }}</td>
+            <td>{{ usuario.idusuario }}</td>
+            <td>{{ usuario.nombre }}</td>
+            <td>{{ usuario.correo }}</td>
+            <td>
+                <button class="btn btn-outline-warning"> <img src="assets/Iconos/Editar.png" style="width: 32px;"> Editar</button>
+            </td>
+            <td>
+                <button class="btn btn-outline-danger"> <img src="assets/Iconos/Eliminar.png" style="width: 32px;"> Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
