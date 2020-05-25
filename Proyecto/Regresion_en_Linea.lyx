@@ -362,5 +362,37 @@ Crear el método PUT
 Crear el método DELETE
 \end_layout
 
+\begin_layout Chapter
+Ventana de Inicio de Sesión en la Página Web
+\end_layout
+
+\begin_layout Enumerate
+Diseño de la ventana de inicio de sesión en la página web
+\end_layout
+
+\begin_layout Chapter
+Crear el archivo de Servicios
+\end_layout
+
+\begin_layout Enumerate
+Crear un archivo de Servicios para la página web
+\end_layout
+
+\begin_layout Chapter
+Iniciar Sesión
+\end_layout
+
+\begin_layout Enumerate
+Iniciar sesión por parte del usuario
+\end_layout
+
+\begin_layout Chapter
+Crear Modal de Mensaje
+\end_layout
+
+\begin_layout Enumerate
+Crear un modal y un servicio de dialogos para la aplicación
+\end_layout
+
 \end_body
 \end_document

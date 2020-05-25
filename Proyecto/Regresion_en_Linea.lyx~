@@ -338,5 +338,53 @@ Crear el servidor DataSnap usando Delphi Rad Studio
 Probar el primer servicio en PostMan
 \end_layout
 
+\begin_layout Chapter
+Crear los servicios para usuarios
+\end_layout
+
+\begin_layout Enumerate
+Crear el método POST
+\end_layout
+
+\begin_layout Enumerate
+Crear el método GET
+\end_layout
+
+\begin_layout Enumerate
+Crear el método GET-ALL
+\end_layout
+
+\begin_layout Enumerate
+Crear el método PUT
+\end_layout
+
+\begin_layout Enumerate
+Crear el método DELETE
+\end_layout
+
+\begin_layout Chapter
+Ventana de Inicio de Sesión en la Página Web
+\end_layout
+
+\begin_layout Enumerate
+Diseño de la ventana de inicio de sesión en la página web
+\end_layout
+
+\begin_layout Chapter
+Crear el archivo de Servicios
+\end_layout
+
+\begin_layout Enumerate
+Crear un archivo de Servicios para la página web
+\end_layout
+
+\begin_layout Chapter
+Iniciar Sesión
+\end_layout
+
+\begin_layout Enumerate
+Iniciar sesión por parte del usuario
+\end_layout
+
 \end_body
 \end_document

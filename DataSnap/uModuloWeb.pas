@@ -6,10 +6,10 @@ uses
   System.SysUtils, System.Classes, Web.HTTPApp, Datasnap.DSHTTPCommon,
   Datasnap.DSHTTPWebBroker, Datasnap.DSServer,
   Web.WebFileDispatcher, Web.HTTPProd,
-  DataSnap.DSAuth,
+  Datasnap.DSAuth,
   Datasnap.DSProxyJavaScript, IPPeerServer, Datasnap.DSMetadata,
   Datasnap.DSServerMetadata, Datasnap.DSClientMetadata, Datasnap.DSCommonServer,
-  Datasnap.DSHTTP;
+  Datasnap.DSHTTP, System.JSON, Data.DBXCommon;
 
 type
   TModuloWeb = class(TWebModule)
@@ -25,14 +25,17 @@ type
       var PersistentClass: TPersistentClass);
     procedure ServerFunctionInvokerHTMLTag(Sender: TObject; Tag: TTag;
       const TagString: string; TagParams: TStrings; var ReplaceText: string);
-    procedure WebModuleDefaultAction(Sender: TObject;
-      Request: TWebRequest; Response: TWebResponse; var Handled: Boolean);
-    procedure WebModuleBeforeDispatch(Sender: TObject;
-      Request: TWebRequest; Response: TWebResponse; var Handled: Boolean);
+    procedure WebModuleDefaultAction(Sender: TObject; Request: TWebRequest;
+      Response: TWebResponse; var Handled: Boolean);
+    procedure WebModuleBeforeDispatch(Sender: TObject; Request: TWebRequest;
+      Response: TWebResponse; var Handled: Boolean);
     procedure WebFileDispatcher1BeforeDispatch(Sender: TObject;
       const AFileName: string; Request: TWebRequest; Response: TWebResponse;
       var Handled: Boolean);
     procedure WebModuleCreate(Sender: TObject);
+    procedure DSHTTPWebDispatcher1FormatResult(Sender: TObject;
+      var ResultVal: TJSONValue; const Command: TDBXCommand;
+      var Handled: Boolean);
   private
     { Private declarations }
     FServerFunctionInvokerAction: TWebActionItem;
@@ -46,13 +49,19 @@ var
 
 implementation
 
-
 {$R *.dfm}
 
 uses uMetodosServidor, Web.WebReq;
 
-procedure TModuloWeb.DSServerClass1GetClass(
-  DSServerClass: TDSServerClass; var PersistentClass: TPersistentClass);
+procedure TModuloWeb.DSHTTPWebDispatcher1FormatResult(Sender: TObject;
+  var ResultVal: TJSONValue; const Command: TDBXCommand; var Handled: Boolean);
+begin
+  ResultVal := (ResultVal as TJSONArray).Remove(0);
+  Handled := True;
+end;
+
+procedure TModuloWeb.DSServerClass1GetClass(DSServerClass: TDSServerClass;
+  var PersistentClass: TPersistentClass);
 begin
   PersistentClass := uMetodosServidor.TRegresion;
 end;
@@ -79,9 +88,8 @@ begin
     ReplaceText := DateTimeToStr(Now)
   else if SameText(TagString, 'serverfunctioninvoker') then
     if AllowServerFunctionInvoker then
-      ReplaceText :=
-      '<div><a href="' + string(Request.InternalScriptName) +
-      '/ServerFunctionInvoker" target="_blank">Server Functions</a></div>'
+      ReplaceText := '<div><a href="' + string(Request.InternalScriptName) +
+        '/ServerFunctionInvoker" target="_blank">Server Functions</a></div>'
     else
       ReplaceText := '';
 end;
@@ -89,7 +97,7 @@ end;
 procedure TModuloWeb.WebModuleDefaultAction(Sender: TObject;
   Request: TWebRequest; Response: TWebResponse; var Handled: Boolean);
 begin
-  if (Request.InternalPathInfo = '') or (Request.InternalPathInfo = '/')then
+  if (Request.InternalPathInfo = '') or (Request.InternalPathInfo = '/') then
     Response.Content := ReverseString.Content
   else
     Response.SendRedirect(Request.InternalScriptName + '/');
@@ -98,14 +106,30 @@ end;
 procedure TModuloWeb.WebModuleBeforeDispatch(Sender: TObject;
   Request: TWebRequest; Response: TWebResponse; var Handled: Boolean);
 begin
+  Response.SetCustomHeader('Access-Control-Allow-Origin', '*');
+
+  if Trim(Request.GetFieldByName('Access-Control-Request-Headers')) <> '' then
+  begin
+    Response.SetCustomHeader('Access-Control-Allow-Headers',
+      Request.GetFieldByName('Access-Control-Request-Headers'));
+
+    Response.SetCustomHeader('Access-Control-Allow-Methods',
+      'DELETE, PUT, POST, GET');
+
+    Handled := True;
+  end;
+
   if FServerFunctionInvokerAction <> nil then
+  begin
     FServerFunctionInvokerAction.Enabled := AllowServerFunctionInvoker;
+  end;
 end;
 
 function TModuloWeb.AllowServerFunctionInvoker: Boolean;
 begin
-  Result := (Request.RemoteAddr = '127.0.0.1') or
-    (Request.RemoteAddr = '0:0:0:0:0:0:0:1') or (Request.RemoteAddr = '::1');
+  // Result := (Request.RemoteAddr = '127.0.0.1') or
+  //   (Request.RemoteAddr = '0:0:0:0:0:0:0:1') or (Request.RemoteAddr = '::1');
+  Result := True;
 end;
 
 procedure TModuloWeb.WebFileDispatcher1BeforeDispatch(Sender: TObject;
@@ -116,7 +140,9 @@ var
 begin
   Handled := False;
   if SameFileName(ExtractFileName(AFileName), 'serverfunctions.js') then
-    if not FileExists(AFileName) or (FileAge(AFileName, D1) and FileAge(WebApplicationFileName, D2) and (D1 < D2)) then
+    if not FileExists(AFileName) or
+      (FileAge(AFileName, D1) and FileAge(WebApplicationFileName, D2) and
+      (D1 < D2)) then
     begin
       DSProxyGenerator1.TargetDirectory := ExtractFilePath(AFileName);
       DSProxyGenerator1.TargetUnitName := ExtractFileName(AFileName);
@@ -130,8 +156,9 @@ begin
 end;
 
 initialization
+
 finalization
-  Web.WebReq.FreeWebModules;
+
+Web.WebReq.FreeWebModules;
 
 end.
-

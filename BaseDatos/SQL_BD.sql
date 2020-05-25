@@ -1,7 +1,8 @@
 ﻿create table if not exists usuario(
 	idusuario text primary key not null,
 	nombre text,
-	correo text
+	correo text,
+	contra text
 );
 
 create table if not exists proyecto(

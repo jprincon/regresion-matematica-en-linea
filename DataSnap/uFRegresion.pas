@@ -35,7 +35,7 @@ type
     procedure StartServer;
     { Private declarations }
   public
-    { Public declarations }
+    procedure mensaje(procedimiento, msg: string);
   end;
 
 var
@@ -46,9 +46,10 @@ implementation
 {$R *.dfm}
 
 uses
-  WinApi.Windows, Winapi.ShellApi, Datasnap.DSSession;
+  Winapi.Windows, Winapi.ShellApi, Datasnap.DSSession;
 
-procedure TFRegresion.ApplicationEvents1Idle(Sender: TObject; var Done: Boolean);
+procedure TFRegresion.ApplicationEvents1Idle(Sender: TObject;
+  var Done: Boolean);
 begin
   ButtonStart.Enabled := not FServer.Active;
   ButtonStop.Enabled := FServer.Active;
@@ -61,9 +62,7 @@ var
 begin
   StartServer;
   LURL := Format('http://localhost:%s', [EditPort.Text]);
-  ShellExecute(0,
-        nil,
-        PChar(LURL), nil, nil, SW_SHOWNOACTIVATE);
+  ShellExecute(0, nil, PChar(LURL), nil, nil, SW_SHOWNOACTIVATE);
 end;
 
 procedure TFRegresion.ButtonStartClick(Sender: TObject);
@@ -87,6 +86,17 @@ end;
 procedure TFRegresion.FormCreate(Sender: TObject);
 begin
   FServer := TIdHTTPWebBrokerBridge.Create(Self);
+end;
+
+procedure TFRegresion.mensaje(procedimiento, msg: string);
+begin
+  with LvConsola.Items.Add.SubItems do
+  begin
+    Add(IntToStr(LvConsola.Items.Count));
+    Add(DateTimeToStr(now));
+    Add(procedimiento);
+    Add(msg);
+  end;
 end;
 
 procedure TFRegresion.StartServer;
