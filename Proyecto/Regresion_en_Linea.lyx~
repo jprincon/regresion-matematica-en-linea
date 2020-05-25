@@ -314,5 +314,29 @@ export const routingModule = RouterModule.forRoot(routes, {useHash: true});
 
 \end_layout
 
+\begin_layout Chapter
+Estructura de la Base de Datos
+\end_layout
+
+\begin_layout Enumerate
+Crear la estructura de la base de datos en LucidChart
+\end_layout
+
+\begin_layout Enumerate
+Crear el código SQL para la base de datos
+\end_layout
+
+\begin_layout Chapter
+Crear el Servidor DataSnap
+\end_layout
+
+\begin_layout Enumerate
+Crear el servidor DataSnap usando Delphi Rad Studio
+\end_layout
+
+\begin_layout Enumerate
+Probar el primer servicio en PostMan
+\end_layout
+
 \end_body
 \end_document

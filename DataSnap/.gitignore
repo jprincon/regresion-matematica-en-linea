@@ -1,0 +1,8 @@
+## Ignorar Directorios
+Win32
+__history
+__recovery
+
+## Extensiones
+*.local*
+*.dres*
