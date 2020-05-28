@@ -4,6 +4,7 @@ import { AcercaComponent } from './componentes/acerca/acerca.component';
 import { MenuPrincipalComponent } from './componentes/menu-principal/menu-principal.component';
 import { AdministradorComponent } from './administrador/administrador/administrador.component';
 import { UsuariosComponent } from './administrador/usuarios/usuarios.component';
+import { ProyectosComponent } from './administrador/proyectos/proyectos.component';
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'administrador', component: AdministradorComponent,
     children: [
       { path: 'usuarios', component: UsuariosComponent },
+      { path: 'proyectos', component: ProyectosComponent },
       { path: '**', pathMatch: 'full', redirectTo: 'usuarios' }
     ]
   },

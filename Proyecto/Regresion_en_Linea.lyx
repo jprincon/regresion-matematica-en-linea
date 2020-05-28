@@ -131,7 +131,148 @@ status open
 
 \begin_deeper
 \begin_layout Enumerate
-Plugins de VSC: 
+Angular 2 TypeScript Emmet 
+\end_layout
+
+\begin_layout Enumerate
+Angular 2 TypeScript Test Snippets 
+\end_layout
+
+\begin_layout Enumerate
+Angular 2, 4 and upcoming latest TypeScript HTML Snippets 
+\end_layout
+
+\begin_layout Enumerate
+Angular 8 and TypeScript/HTML VS Code Snippets 
+\end_layout
+
+\begin_layout Enumerate
+Angular 8 Snippets - TypeScript, Html, Angular Material, ngRx, RxJS & Flex
+ Layout 
+\end_layout
+
+\begin_layout Enumerate
+Angular Extension Pack 
+\end_layout
+
+\begin_layout Enumerate
+Angular Language Service 
+\end_layout
+
+\begin_layout Enumerate
+Angular Material 2, Flex layout 1, Covalent 1 & Material icon snippets 
+\end_layout
+
+\begin_layout Enumerate
+Angular Material v7 snippets 
+\end_layout
+
+\begin_layout Enumerate
+Angular Schematics 
+\end_layout
+
+\begin_layout Enumerate
+Angular Snippets (Version 9) 
+\end_layout
+
+\begin_layout Enumerate
+Angular v5 Snippets 
+\end_layout
+
+\begin_layout Enumerate
+angular2-inline 
+\end_layout
+
+\begin_layout Enumerate
+angular2-switcher 
+\end_layout
+
+\begin_layout Enumerate
+AngularDoc for Visual Studio Code 
+\end_layout
+
+\begin_layout Enumerate
+Auto Close Tag 
+\end_layout
+
+\begin_layout Enumerate
+Auto Import 
+\end_layout
+
+\begin_layout Enumerate
+Auto Rename Tag 
+\end_layout
+
+\begin_layout Enumerate
+Beautify 
+\end_layout
+
+\begin_layout Enumerate
+Bootstrap 4, Font awesome 4, Font Awesome 5 Free & Pro snippets 
+\end_layout
+
+\begin_layout Enumerate
+Bootstrap v4 Snippets 
+\end_layout
+
+\begin_layout Enumerate
+es6-string-html 
+\end_layout
+
+\begin_layout Enumerate
+GitHub 
+\end_layout
+
+\begin_layout Enumerate
+GitHub Pull Requests and Issues 
+\end_layout
+
+\begin_layout Enumerate
+HTML CSS Support 
+\end_layout
+
+\begin_layout Enumerate
+HTML Snippets 
+\end_layout
+
+\begin_layout Enumerate
+IntelliSense for CSS class names in HTML 
+\end_layout
+
+\begin_layout Enumerate
+JavaScript (ES6) code snippets 
+\end_layout
+
+\begin_layout Enumerate
+JavaScript (ES6) code snippets in StandardJS style 
+\end_layout
+
+\begin_layout Enumerate
+JS-CSS-HTML Formatter 
+\end_layout
+
+\begin_layout Enumerate
+json2ts 
+\end_layout
+
+\begin_layout Enumerate
+Material Icon Theme 
+\end_layout
+
+\begin_layout Enumerate
+Prettier - Code formatter 
+\end_layout
+
+\begin_layout Enumerate
+TSLint 
+\end_layout
+
+\begin_layout Enumerate
+TypeScript Hero 
+\end_layout
+
+\begin_layout Enumerate
+TypeScript Importer 
 \end_layout
 
 \end_deeper
@@ -400,6 +541,18 @@ Página de Administrador
 
 \begin_layout Enumerate
 Diseñar la página del adminsitrador
+\end_layout
+
+\begin_layout Chapter
+Editar/Crear Usuarios
+\end_layout
+
+\begin_layout Enumerate
+Crear modal para editar y crear usuarios
+\end_layout
+
+\begin_layout Enumerate
+Editar usuarios
 \end_layout
 
 \end_body

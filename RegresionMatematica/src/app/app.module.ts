@@ -18,6 +18,9 @@ import { MenuPrincipalComponent } from './componentes/menu-principal/menu-princi
 import { DlgMensajeComponent } from './dialogos/dlg-mensaje/dlg-mensaje.component';
 import { AdministradorComponent } from './administrador/administrador/administrador.component';
 import { UsuariosComponent } from './administrador/usuarios/usuarios.component';
+import { DlgUsuarioComponent } from './dialogos/dlg-usuario/dlg-usuario.component';
+import { DlgConfirmarComponent } from './dialogos/dlg-confirmar/dlg-confirmar.component';
+import { ProyectosComponent } from './administrador/proyectos/proyectos.component';
 
 
 @NgModule({
@@ -28,7 +31,10 @@ import { UsuariosComponent } from './administrador/usuarios/usuarios.component';
     MenuPrincipalComponent,
     DlgMensajeComponent,
     AdministradorComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    DlgUsuarioComponent,
+    DlgConfirmarComponent,
+    ProyectosComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +45,9 @@ import { UsuariosComponent } from './administrador/usuarios/usuarios.component';
     MatDialogModule
   ],
   entryComponents: [
-    DlgMensajeComponent
+    DlgMensajeComponent,
+    DlgUsuarioComponent,
+    DlgConfirmarComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

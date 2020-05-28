@@ -1,0 +1,26 @@
+<h1>Crear Usuario</h1>
+<hr>
+
+<div class="form-group">
+    <label style="font-weight: bold;">Documento</label>
+    <input class="form-control" type="text" [(ngModel)]="usuario.idusuario" name="idusuario">
+</div>
+
+<div class="form-group">
+    <label style="font-weight: bold;">Nombre</label>
+    <input class="form-control" type="text" [(ngModel)]="usuario.nombre" name="nombre">
+</div>
+
+<div class="form-group">
+    <label style="font-weight: bold;">Correo</label>
+    <input class="form-control" type="text" [(ngModel)]="usuario.correo" name="correo">
+</div>
+
+<div class="form-group">
+    <label style="font-weight: bold;">Contraseña</label>
+    <input class="form-control" type="password" [(ngModel)]="usuario.contra" name="contra">
+</div>
+
+<hr>
+
+<button (click)="guardar()" class="btn btn-outline-success float-right"> <img src="assets/Iconos/Guardar.png" style="width: 32px"> Guardar</button>
